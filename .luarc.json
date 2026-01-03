@@ -1,0 +1,32 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "completion": {
+        "autoRequire": false
+    },
+    "diagnostics": {
+        "groupSeverity": {
+            "ambiguity": "Warning",
+            "await": "Warning",
+            "codestyle": "Warning",
+            "conventions": "Warning",
+            "duplicate": "Warning",
+            "global": "Warning",
+            "luadoc": "Warning",
+            "redefined": "Warning",
+            "strict": "Warning",
+            "strong": "Warning",
+            "type-check": "Warning",
+            "unbalanced": "Warning",
+            "unused": "Warning"
+        }
+    },
+    "runtime": {
+        "version": "Lua 5.1",
+        "pathStrict": true
+    },
+    "workspace": {
+        "ignoreDir": [
+            ".vscode"
+        ]
+    }
+}
