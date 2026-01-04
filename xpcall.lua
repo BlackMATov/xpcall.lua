@@ -7,7 +7,7 @@ local __lua_unpack = table.unpack or unpack
 
 ---@diagnostic disable-next-line: redundant-parameter
 if __lua_select(2, __lua_xpcall(function(a) return a end, function() end, 42)) == 42 then
-    -- use built_in xpcall if it works correctly with extra arguments
+    -- use built-in xpcall if it works correctly with extra arguments
     return __lua_xpcall
 end
 
