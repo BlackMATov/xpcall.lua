@@ -9,6 +9,7 @@
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Changelog](#changelog)
+  - [v1.0.1](#v101)
   - [v1.0.0](#v100)
 - [License](#license)
 
@@ -55,6 +56,10 @@ end
 If the current Lua environment already provides `xpcall` with argument support, the library simply returns the built-in `xpcall` function without any overhead. If the built-in `xpcall` does not support passing arguments to the protected function, the library provides its own implementation.
 
 ## Changelog
+
+### v1.0.1
+
+- Fixed GC issue with holding references to arguments after the `xpcall` call
 
 ### v1.0.0
 

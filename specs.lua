@@ -79,6 +79,39 @@ do
     end
 end
 
+do
+    for i = 10, 50 do
+        local ps = {}
+        local alive_p_count = 0
+
+        for _ = 1, i do
+            local gc = function()
+                alive_p_count = alive_p_count - 1
+            end
+
+            local p = (function()
+                if newproxy then
+                    local p = newproxy(true)
+                    local mt = getmetatable(p)
+                    mt.__gc = gc
+                    return p
+                else
+                    return setmetatable({}, { __gc = gc })
+                end
+            end)()
+
+            ps[#ps + 1] = p
+            alive_p_count = alive_p_count + 1
+        end
+
+        xpcall(function(...) end, function() end, __table_unpack(ps))
+
+        ps = nil
+        collectgarbage('collect')
+        assert(alive_p_count == 0)
+    end
+end
+
 local function describe_bench(name, loop, init, fini)
     print(string.format('| %s ... |', name))
 
